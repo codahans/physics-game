@@ -3,7 +3,11 @@ guid: 0d29e0531b0b0ab439bd36010c491279
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - magnet: {fileID: 3059789284894999475, guid: 2c90406ee780aab47b722f8d6b2bff03, type: 3}
+  - magnetCollider: {fileID: 9030272336614793273, guid: 6a21fbf53d688ff478073187852bb103, type: 3}
+  - negative: {fileID: 3059789284894999475, guid: b83d680cc714ff54a9e15f044e024717, type: 3}
+  - NegativeCollider: {fileID: 9030272336614793273, guid: 71d214cc310887c4f8d52ca3d7d82984, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

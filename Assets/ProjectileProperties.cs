@@ -1,27 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProjectileProperties : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    private bool inside;
-    void Awake()
-    {
-        inside = false;
-    }
+    public float magnetStrength = 6f;
+	public int magnetDirection = 1;
+	public int negativeDirection = -1;
+	public bool loseMagnet = true;
+	private Transform trans;
+	private Rigidbody2D thisRb;
+	private Transform magnetTrans;
+	private Transform negativeTrans;
+	private bool magnetInZone;
+	private bool negativeInZone;
+	private bool targetHit;
+	void Awake()
+	{
+		trans = transform;
+		thisRb = trans.GetComponent<Rigidbody2D>();
+	}
 
-    void FixedUpdate(){
-		if(inside){ //when inside the Magnet apply magnet's forces
-			Vector2 direction = (transform.position - rb.transform.position); //find the direction to move
-			float travelSpeed = Vector2.Distance(transform.position, rb.transform.position); //set the speed of the score bubble to the distance between it and the player
-			rb.AddForce(-direction * travelSpeed); //apply force (This works but can sometimes cause the coins/objects to orbit your player forever
+	void FixedUpdate()
+	{
+		if (magnetInZone)
+		{
+			Vector2 directionToMagnet = magnetTrans.position - trans.position;
+			float distance = Vector2.Distance(magnetTrans.position, trans.position);
+			float magnetDistanceStrength = (4f / distance) * magnetStrength;
+			thisRb.AddForce(magnetDistanceStrength * (directionToMagnet * magnetDirection));
+		}
+		else if (negativeInZone)
+		{
+			Vector2 directionToMagnet = negativeTrans.position - trans.position;
+			float distance = Vector2.Distance(negativeTrans.position, trans.position);
+			float magnetDistanceStrength = (4f / distance) * magnetStrength;
+			thisRb.AddForce(magnetDistanceStrength * (directionToMagnet * negativeDirection));
 		}
 	}
-    void OnTriggerEnter2D(Collider2D other){ //score bubble is set to isTrigger (when it enters another collider this is run)
-		if(other.tag == "magnet"){ //if inside the magnet
-			inside = true;
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.tag == "magnet")
+		{
+			magnetTrans = other.transform;
+			magnetInZone = true;
 		}
-        else inside = false; //omit this line if you want the coins to only be attracted to your object while within the magnet. I found this line to be unnecessary for gameplay. 
+		else if (other.tag == "negative")
+		{
+			negativeTrans = other.transform;
+			negativeInZone = true;
+		}
+		else if (other.tag == "target")
+		{
+			Destroy(gameObject);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
+	}
+	void OnTriggerExit2D (Collider2D other)
+	{
+		if (other.tag == "magnet" && loseMagnet)
+		{
+			magnetInZone = false;
+		}
+		else if (other.tag == "negative" && loseMagnet)
+		{
+			negativeInZone = false;
+		}
 	}
 }

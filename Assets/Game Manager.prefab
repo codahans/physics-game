@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2829370923760876251}
-  - component: {fileID: 7472214288345857662}
+  - component: {fileID: 1052205992775737106}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7472214288345857662
+--- !u!114 &1052205992775737106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnet: {fileID: 3059789284894999475, guid: 2c90406ee780aab47b722f8d6b2bff03, type: 3}
-  magnetCollider: {fileID: 9030272336614793273, guid: 71d214cc310887c4f8d52ca3d7d82984, type: 3}
+  magnetCollider: {fileID: 9030272336614793273, guid: 6a21fbf53d688ff478073187852bb103, type: 3}
+  negative: {fileID: 3059789284894999475, guid: b83d680cc714ff54a9e15f044e024717, type: 3}
+  NegativeCollider: {fileID: 9030272336614793273, guid: 71d214cc310887c4f8d52ca3d7d82984, type: 3}

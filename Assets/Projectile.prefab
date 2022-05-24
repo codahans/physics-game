@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3482508354139120125}
   - component: {fileID: 3482508354139120124}
   - component: {fileID: 3482508354139120098}
-  - component: {fileID: 3143376731039851795}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: projectile
@@ -30,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3624391441842137471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08712832, y: 0.08712832, z: 0.08712832}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7ad61b7a8039e544292a2ce5604973f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b1ca3a176be64a438beab8b31adfb4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +123,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6.000001
+  m_Radius: 8.3
 --- !u!114 &3482508354139120098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,15 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cccf7e888011704591101bc2cd05949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3143376731039851795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3624391441842137471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8348fdb2970bb064da22a84e915faf1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  magnetStrength: 6
+  magnetDirection: 1
+  negativeDirection: -1
+  loseMagnet: 1

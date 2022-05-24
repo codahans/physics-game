@@ -6,6 +6,10 @@ TagManager:
   tags:
   - magnet
   - projectile
+  - negative
+  - target
+  - in game music
+  - in game ui
   layers:
   - Default
   - TransparentFX
