@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ProjectileProperties : MonoBehaviour
 {
-    public float magnetStrength = 6f;
+    public float magnetStrength = 7f;
 	public int magnetDirection = 1;
 	public int negativeDirection = -1;
 	public bool loseMagnet = true;
@@ -28,7 +28,7 @@ public class ProjectileProperties : MonoBehaviour
 		{
 			Vector2 directionToMagnet = magnetTrans.position - trans.position;
 			float distance = Vector2.Distance(magnetTrans.position, trans.position);
-			float magnetDistanceStrength = (4f / distance) * magnetStrength;
+			float magnetDistanceStrength = (3f / distance) * magnetStrength;
 			thisRb.AddForce(magnetDistanceStrength * (directionToMagnet * magnetDirection));
 		}
 		else if (negativeInZone)
