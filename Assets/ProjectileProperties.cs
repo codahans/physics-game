@@ -16,9 +16,11 @@ public class ProjectileProperties : MonoBehaviour
 	private bool magnetInZone;
 	private bool negativeInZone;
 	private bool targetHit;
+	private GameObject successSound;
 	void Awake()
 	{
 		trans = transform;
+		successSound = GameObject.FindGameObjectWithTag("success sound");
 		thisRb = trans.GetComponent<Rigidbody2D>();
 	}
 
@@ -53,6 +55,8 @@ public class ProjectileProperties : MonoBehaviour
 		}
 		else if (other.tag == "target")
 		{
+			successSound.GetComponent<AudioSource>().Play();
+			DontDestroyOnLoad(successSound);
 			Destroy(gameObject);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}

@@ -10,6 +10,7 @@ TagManager:
   - target
   - in game music
   - in game ui
+  - success sound
   layers:
   - Default
   - TransparentFX
