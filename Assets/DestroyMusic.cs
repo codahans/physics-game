@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class DestroyMusic : MonoBehaviour
 {
-    public GameObject music;
     public void cancelMusic ()
     {
-        Destroy(music);
+        Destroy(GameObject.FindGameObjectWithTag("in game music"));
     }
 }
